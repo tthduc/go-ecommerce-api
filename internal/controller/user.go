@@ -3,7 +3,7 @@ package controller
 import (
 	"github.com/gin-gonic/gin"
 	"go-ecommerce-api/internal/service"
-	"go-ecommerce-api/response"
+	"go-ecommerce-api/pkg/response"
 )
 
 type UserController struct {
