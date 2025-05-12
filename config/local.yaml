@@ -1,16 +1,12 @@
 server:
     port: 8080
 
-databases:
-    -   user: admin
-        password: admin
-        host: localhost
-        dbname: shop-dev
-
-    -   user: admin
-        password: admin
-        host: localhost
-        dbname: shop-dev
-
-security:
-    secret
+mysql:
+    host: localhost
+    port: 3307
+    username: app_cam
+    password: secret
+    database: hanet-camera-db
+    maxIdleConns: 10
+    maxOpenConns: 100
+    maxConnLifetime: 3600
