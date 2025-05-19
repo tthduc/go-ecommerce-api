@@ -1,10 +1,10 @@
 package initialize
 
+import (
+	"go-ecommerce-api/global"
+	"go-ecommerce-api/pkg/logger"
+)
+
 func InitLogger() {
-	// Initialize the logger
-	// This is a placeholder function. The actual implementation will depend on the logging library used.
-	// For example, if using logrus:
-	// log.SetFormatter(&log.TextFormatter{})
-	// log.SetOutput(os.Stdout)
-	// log.SetLevel(log.InfoLevel)
+	global.Logger = logger.NewLogger(global.Config.Logger)
 }
