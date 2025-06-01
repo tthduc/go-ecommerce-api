@@ -11,6 +11,13 @@ mysql:
     maxOpenConns: 100
     maxConnLifetime: 3600
 
+redis:
+    host: 127.0.0.1
+    port: 6379
+    password: secret
+    db: 0
+    pool_size: 10
+
 logger:
     log_level: debug
     file_log_name: ./storages/logs/dev.001.log

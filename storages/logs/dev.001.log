@@ -1,1 +1,6 @@
 {"level":"INFO","ts":"2025-05-19T22:06:50.517+0700","caller":"initialize/run.go:14","msg":"config log ok!!!","ok":"success"}
+{"level":"INFO","ts":"2025-05-26T19:27:26.366+0700","caller":"initialize/run.go:14","msg":"config log ok!!!","ok":"success"}
+{"level":"INFO","ts":"2025-05-26T19:27:26.515+0700","caller":"initialize/mysql.go:25","msg":"connect to database successfully"}
+{"level":"INFO","ts":"2025-05-27T18:34:51.640+0700","caller":"initialize/run.go:14","msg":"config log ok!!!","ok":"success"}
+{"level":"INFO","ts":"2025-05-27T18:34:51.666+0700","caller":"initialize/mysql.go:25","msg":"connect to database successfully"}
+{"level":"INFO","ts":"2025-05-27T18:34:51.856+0700","caller":"initialize/redis.go:28","msg":"redis connect successfully"}
