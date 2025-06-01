@@ -4,3 +4,5 @@
 {"level":"INFO","ts":"2025-05-27T18:34:51.640+0700","caller":"initialize/run.go:14","msg":"config log ok!!!","ok":"success"}
 {"level":"INFO","ts":"2025-05-27T18:34:51.666+0700","caller":"initialize/mysql.go:25","msg":"connect to database successfully"}
 {"level":"INFO","ts":"2025-05-27T18:34:51.856+0700","caller":"initialize/redis.go:28","msg":"redis connect successfully"}
+{"level":"INFO","ts":"2025-06-01T16:33:15.994+0700","caller":"initialize/run.go:14","msg":"config log ok!!!","ok":"success"}
+{"level":"ERROR","ts":"2025-06-01T16:33:15.998+0700","caller":"initialize/mysql.go:21","msg":"failed to connect to database","error":"dial tcp 127.0.0.1:3307: connect: connection refused","stacktrace":"go-ecommerce-api/internal/initialize.InitMysql\n\t/Users/thanhduc/Desktop/go-projects/go-ecommerce-api/internal/initialize/mysql.go:21\ngo-ecommerce-api/internal/initialize.Run\n\t/Users/thanhduc/Desktop/go-projects/go-ecommerce-api/internal/initialize/run.go:17\nmain.main\n\t/Users/thanhduc/Desktop/go-projects/go-ecommerce-api/cmd/server/main.go:7\nruntime.main\n\t/opt/homebrew/opt/go/libexec/src/runtime/proc.go:283"}

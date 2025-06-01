@@ -1,44 +1,44 @@
 package initialize
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
-	"go-ecommerce-api/internal/controller"
-	"go-ecommerce-api/internal/middlewares"
+	"go-ecommerce-api/global"
+	"go-ecommerce-api/internal/routers"
 )
-
-func AA() gin.HandlerFunc {
-	return func(c *gin.Context) {
-		fmt.Println("before aa")
-		c.Next()
-		fmt.Println("after aa")
-	}
-}
-
-func BB() gin.HandlerFunc {
-	return func(c *gin.Context) {
-		fmt.Println("before bb")
-		c.Next()
-		fmt.Println("after bb")
-	}
-}
-
-func CC(c *gin.Context) {
-	fmt.Println("before cc")
-	c.Next()
-	fmt.Println("after cc")
-}
 
 func InitRouter() *gin.Engine {
 	// gin.Engine is used to create a new Gin server instance
-	r := gin.Default()
+	var r *gin.Engine
 
-	// Middleware
-	r.Use(middlewares.Auth(), BB(), CC)
+	if global.Config.Server.Mode == "development" {
+		gin.SetMode(gin.DebugMode)
+		gin.ForceConsoleColor()
+		r = gin.Default()
+	} else {
+		gin.SetMode(gin.ReleaseMode)
+		r = gin.New()
+	}
 
-	v1 := r.Group("/v1")
+	// Set up global middleware
+	r.Use(gin.Recovery())
+	// r.Use(middleware.Logger()) // Uncomment if you have a custom logger middleware
+	// r.Use(middleware.Cors()) // Uncomment if you have a custom CORS middleware
+	// r.Use(middleware.Auth()) // Uncomment if you have a custom authentication middleware
+
+	// Initialize routes
+	mangerRouter := routers.RouterGroupApp.Manager
+	userRouter := routers.RouterGroupApp.User
+
+	mainGroup := r.Group("/api/v1")
 	{
-		v1.GET("/user/register", controller.NewUserController().Register)
+		mainGroup.GET("/check-status")
+	}
+	{
+		userRouter.InitUserRouter(mainGroup)
+		userRouter.InitProductRouter(mainGroup)
+	}
+	{
+		mangerRouter.InitAdminRouter(mainGroup)
 	}
 
 	return r
